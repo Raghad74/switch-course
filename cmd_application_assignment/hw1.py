@@ -1,37 +1,38 @@
-def isPalindrome(s:str):
-    i,j=0,len(s)-1
+THRESHOLD=15
+def is_palindrome(user_input:str):
+    i,j=0,len(user_input)-1
     while i<=j:
-        if s[i]!=s[j]:
+        if user_input[i]!=user_input[j]:
             return False
         i+=1
         j-=1
     return True
 
-def isLower(s:str):
+def is_lower(s:str):
     for ch in s:
         if ord(ch)>ord('z') or ord(ch)<ord('a'):
             return False
     return True
 
-def isDigit(s:str):
+def is_digit(s:str):
     for ch in s:
         if ord(ch)>ord('9') or ord(ch)<ord('0'):
             return False
     return True
 
-def isLong(s:str):
-    return len(s)>15
+def is_long(s:str):
+    return len(s)>THRESHOLD
 
-def isEmpty(s:str):
+def is_empty(s:str):
     return s==""
 
 def __main__():
     operations={
-        1:isPalindrome,
-        2:isLower,
-        3:isDigit,
-        4:isLong,
-        5:isEmpty
+        1:is_palindrome,
+        2:is_lower,
+        3:is_digit,
+        4:is_long,
+        5:is_empty
     }
     while True:
         print('The available operations are:\n1 - Palindrome: Check if the input is palindrome\n' \
@@ -40,6 +41,7 @@ def __main__():
         '4 - Long: Check if the input length is longer than 15\n' \
         '5 - Empty: Check if the input is empty\n' \
         '6 - Exit: Exit successfully from the application\n')
+
         num=int(input('Please enter the number of the operation you choose:\n'))
         if num==6:
             break
